@@ -10,7 +10,7 @@ import UIKit
 
 class MessagesCoordinator: NavigationCoordinator {
     // MARK: - Properties
-    
+    var isCompleted: (() -> Void)?
     var rootViewController: UINavigationController
     var childCoordinators = [Coordinator]()
     
@@ -24,11 +24,11 @@ class MessagesCoordinator: NavigationCoordinator {
 
     func start() {
         let messagesViewController = MessagesViewController()
-        setupUI()
+        setupRootViewController()
         self.rootViewController.setViewControllers([messagesViewController], animated: true)
     }
     
-    private func setupUI() {
+    private func setupRootViewController() {
         rootViewController.tabBarItem.image = UIImage(named: "Mail")
         rootViewController.tabBarItem.selectedImage = UIImage(named: "Mail.fill")
     }

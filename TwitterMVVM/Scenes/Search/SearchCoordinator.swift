@@ -10,7 +10,7 @@ import UIKit
 
 class SearchCoordinator: NavigationCoordinator {
     // MARK: - Properties
-    
+    var isCompleted: (() -> Void)?
     var rootViewController: UINavigationController
     var childCoordinators = [Coordinator]()
     
@@ -24,11 +24,11 @@ class SearchCoordinator: NavigationCoordinator {
 
     func start() {
         let searchViewController = SearchViewController()
-        setupUI()
+        setupRootViewController()
         self.rootViewController.setViewControllers([searchViewController], animated: true)
     }
     
-    private func setupUI() {
+    private func setupRootViewController() {
         rootViewController.tabBarItem.image = UIImage(named: "Search")
         rootViewController.tabBarItem.selectedImage = UIImage(named: "Search.fill")
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class HomeCoordinator: NavigationCoordinator {
     // MARK: - Properties
-    
+    var isCompleted: (() -> Void)?
     var rootViewController: UINavigationController
     var childCoordinators = [Coordinator]()
     
@@ -24,11 +24,11 @@ class HomeCoordinator: NavigationCoordinator {
 
     func start() {
         let homeViewController = HomeViewController()
-        setupUI()
+        setupRootViewController()
         self.rootViewController.setViewControllers([homeViewController], animated: true)
     }
     
-    private func setupUI() {
+    private func setupRootViewController() {
         rootViewController.tabBarItem.image = UIImage(named: "Home")
         rootViewController.tabBarItem.selectedImage = UIImage(named: "Home.fill")
     }

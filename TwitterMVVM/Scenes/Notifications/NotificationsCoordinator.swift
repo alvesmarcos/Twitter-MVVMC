@@ -10,7 +10,7 @@ import UIKit
 
 class NotificationsCoordinator: NavigationCoordinator {
     // MARK: - Properties
-    
+    var isCompleted: (() -> Void)?
     var rootViewController: UINavigationController
     var childCoordinators = [Coordinator]()
     
@@ -24,11 +24,11 @@ class NotificationsCoordinator: NavigationCoordinator {
 
     func start() {
         let notificationsViewController = NotificationsViewController()
-        setupUI()
+        setupRootViewController()
         self.rootViewController.setViewControllers([notificationsViewController], animated: true)
     }
     
-    private func setupUI() {
+    private func setupRootViewController() {
         rootViewController.tabBarItem.image = UIImage(named: "Bell")
         rootViewController.tabBarItem.selectedImage = UIImage(named: "Bell.fill")
     }

@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class AppCoordinator: Coordinator {
+    var isCompleted: (() -> Void)?
+    
     private let window: UIWindow
     
     var childCoordinators = [Coordinator]()
